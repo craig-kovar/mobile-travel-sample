@@ -57,9 +57,11 @@ public class FlightCellRenderer extends JPanel implements ListCellRenderer<Fligh
         boolean selected,
         boolean focused) {
         flightInfo.setText(flight.getCarrier() + " " + flight.getFlight());
+        String departureDate = flight.getDepartureDate();
+        String departureTime = flight.getDepartureTime();
         details.setText(String.format(
-            "%s - %s, Fare: $%.2f",
-            flight.getOriginAirport(), flight.getDestinationAirport(), flight.getPrice()));
+            "%s -> %s: %s %s | Fare: $%.2f"
+            , flight.getOriginAirport(), flight.getDestinationAirport(), departureDate==null ? "":departureDate, departureTime==null? "":departureTime, flight.getPrice()));
         setForeground(focused ? Page.COLOR_TEXT : Page.COLOR_UNFOCUSED);
         setBackground(selected ? Page.COLOR_SELECTED : Page.COLOR_BACKGROUND);
         return this;

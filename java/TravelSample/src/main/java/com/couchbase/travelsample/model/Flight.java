@@ -46,6 +46,7 @@ public class Flight {
                 (!json.has(PROP_DESTINATION)) ? null : json.getString(PROP_DESTINATION),
                 (!json.has(PROP_EQUIPMENT)) ? null : json.getString(PROP_EQUIPMENT),
                 (!json.has(PROP_DEPARTURE_TIME)) ? null : json.getString(PROP_DEPARTURE_TIME),
+                (!json.has(PROP_DEPARTURE_DATE)) ? null : json.getString(PROP_DEPARTURE_DATE),
                 (!json.has(PROP_FLIGHT_TIME)) ? 0 : json.getInt(PROP_FLIGHT_TIME),
                 (!json.has(PROP_PRICE)) ? 0F :  (float) json.getDouble(PROP_PRICE));
     }
@@ -63,6 +64,8 @@ public class Flight {
     protected final String equipment;
     @Nullable
     protected final String departTime;
+    @Nullable
+    protected final String departDate;
     protected final int flightTime;
     protected final float price;
 
@@ -73,6 +76,7 @@ public class Flight {
         @Nullable String destination,
         @Nullable String equipment,
         @Nullable String departTime,
+        @Nullable String departDate,
         int flightTime,
         float price) {
         if (flight == null) { throw new IllegalArgumentException("Flight may not have null flight id"); }
@@ -83,6 +87,7 @@ public class Flight {
         this.equipment = equipment;
         this.departTime = departTime;
         this.flightTime = flightTime;
+        this.departDate = departDate;
         this.price = price;
     }
 
@@ -103,6 +108,9 @@ public class Flight {
 
     @Nullable
     public final String getDepartureTime() { return departTime; }
+
+    @Nullable
+    public final String getDepartureDate() { return departDate; }
 
     public final int getFlightTime() { return flightTime; }
 
