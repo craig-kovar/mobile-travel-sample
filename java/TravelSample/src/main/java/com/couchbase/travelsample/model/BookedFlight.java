@@ -98,7 +98,7 @@ public class BookedFlight extends Flight {
         @Nullable String departTime,
         int flightTime,
         float price) {
-        super(flight, carrier, origin, destination, equipment, departTime, flightTime, price);
+        super(flight, carrier, origin, destination, equipment, departTime, departDate, flightTime, price);
         if (departDate == null) { throw new IllegalArgumentException("BookedFlight may not have null departure time"); }
         this.departDate = departDate;
     }
